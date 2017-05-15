@@ -1,5 +1,7 @@
 package com.source.it.lecture3.homework;
 
+import java.util.Arrays;
+
 public class MatrixMultiplier {
     public static void main(String[] args) {
         int[][] first = {
@@ -15,5 +17,21 @@ public class MatrixMultiplier {
                 {3, 4, 6}
         };
 
+        int[][] result = new int[first.length][second[0].length];
+
+        for (int i = 0; i < first.length; i++) {
+            for (int j = 0; j < second[0].length; j++) {
+                for (int k = 0; k < second.length; k++){
+                    result[i][j] += first[i][k] * second[k][j];
+                }
+            }
+        }
+     PrintArray(result);
+    }
+
+    public static void PrintArray(int [][] array) {
+        for (int[] elem : array) {
+            System.out.println(Arrays.toString(elem));
+        }
     }
 }

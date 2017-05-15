@@ -20,18 +20,7 @@ public class MultiDimensionArray {
                     break;
                 }
             }
-            /*for (int elem : array) { Wrong!!!!
-                if (elem != 1) {
-                    elem++;
-                    System.out.print(elem + " ");
-                } else {
-                    elem++;
-                    System.out.print(elem + " ");
-                    break;
-                }
-            }
-            System.out.println();*/
-        }
+          }
 
         for (int[] array : matrix) {
             System.out.println(Arrays.toString(array));
