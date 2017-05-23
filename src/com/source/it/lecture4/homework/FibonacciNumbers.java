@@ -4,7 +4,7 @@ public class FibonacciNumbers {
 
     public static void main(String[] args) {
 
-        int fibonacci = fibonacci(8);
+        int fibonacci = fibonacci(10);
         System.out.println(fibonacci);
         }
 

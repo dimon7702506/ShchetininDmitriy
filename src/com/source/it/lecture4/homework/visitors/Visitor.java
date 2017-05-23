@@ -5,8 +5,10 @@ import java.util.Date;
 import java.util.Random;
 
 public class Visitor {
+
     public final static int MAX_VISITORS_PER_DAY = 50;
     public final static int MIN_VISITORS_PER_DAY = 10;
+
     private long comeTime;
     private long leaveTime;
 
@@ -25,8 +27,9 @@ public class Visitor {
 
     public static  Visitor[] createVisitors() {
         Calendar calendar = Calendar.getInstance();
-        calendar.set(new Date().getYear(), new Date().getMonth(), new Date().getDate(), 0, 0, 0);
+        calendar.set(1900 + new Date().getYear(), new Date().getMonth(), new Date().getDate(), 0, 0, 0);
         long startWork = calendar.getTime().getTime() + 9 * 60 * 60 * 1000;
+        //System.out.println(startWork);
         long endWork = startWork + 8 * 60 * 60 * 1000;
         Random random = new Random();
         Visitor[] result =
