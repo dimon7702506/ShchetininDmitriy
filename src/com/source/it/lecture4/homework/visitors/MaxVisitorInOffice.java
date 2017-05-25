@@ -30,10 +30,10 @@ public class MaxVisitorInOffice {
                     if (visitors[i].getComeTime() <= visitors[j].getComeTime() && visitors[j].getComeTime() <= visitors[i].getLeaveTime() && visitors[i].getLeaveTime() <= visitors[j].getLeaveTime()) {
                         count++;
                     }
-                    if (visitors[j].getComeTime() <= visitors[i].getComeTime() && visitors[j].getComeTime() < visitors[i].getLeaveTime() && visitors[i].getLeaveTime() <= visitors[j].getLeaveTime()) {
+                    if (visitors[j].getComeTime() <= visitors[i].getComeTime() && visitors[j].getComeTime() <= visitors[i].getLeaveTime() && visitors[i].getLeaveTime() <= visitors[j].getLeaveTime()) {
                         count++;
                     }
-                    if (visitors[i].getComeTime() < visitors[j].getComeTime() & visitors[j].getLeaveTime() < visitors[i].getLeaveTime()) {
+                    if (visitors[i].getComeTime() <= visitors[j].getComeTime() & visitors[j].getLeaveTime() <= visitors[i].getLeaveTime()) {
                         count++;
                     }
                     if (visitors[j].getComeTime() < visitors[i].getComeTime() & visitors[i].getLeaveTime() < visitors[j].getLeaveTime()) {
@@ -43,7 +43,7 @@ public class MaxVisitorInOffice {
                 }
             }
         }
-        //System.out.println(Arrays.toString(counter));
+        System.out.println(Arrays.toString(counter));
 
         for (int i = 0; i < counter.length; i++){
             if (maxVisitorAtOnce < counter[i]) {
