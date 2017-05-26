@@ -54,23 +54,96 @@ public class NodeQueueWrapper {
     /**
      * Removes Node from list that is located on position from head(start of the list).
      * If position is more than list size prints error message
+     *
      * @param position number of the Node starting from the head
      **/
     public int remove(int position) {
         /*Your code here*/
-        int QueueSize = 0;
 
         QueueNode current = tail;
         QueueNode prev = tail;
 
-        while (current != null) {
-            current = current.getNext();
-            QueueSize ++;
-        }
+        int QueueSize = getQueueSize();
 
         if (position > QueueSize) {
             System.out.println("The position is more than list size. Queue size is " + QueueSize);
             return 0;
+        }
+
+        current = tail;
+        prev = tail;
+
+        int pos = QueueSize;
+
+        while (current != null) {
+            //System.out.println("pos " + pos);
+
+            if (pos == position) {
+                prev.setNext(current.getNext());
+                //return current.getValue();
+                break;
+            }
+
+            current = current.getNext();
+
+            if (pos != QueueSize) {
+                prev = prev.getNext();
+            }
+            //System.out.println("prev = " + prev.getValue() + " current = " + current.getValue());
+            pos--;
+        }
+        return 0;
+    }
+
+    /**
+     * Adds Node to list on position from head(start of the list).
+     * If position is more than list size prints error message
+     *
+     * @param position number of the Node starting from the head
+     * @param node     node should be inserted at position
+     */
+    public void addNode(int position, QueueNode node) {
+        /*Your code here*/
+        QueueNode current = tail;
+
+        int QueueSize = getQueueSize();
+
+        if (position > QueueSize) {
+            System.out.println("The position is more than list size. Queue size is " + QueueSize);
+            return;
+        }
+
+        int pos = QueueSize;
+        current = tail;
+
+        while (current != null) {
+
+            if (pos == position) {
+                node.setNext(current.getNext());
+                current.setNext(node);
+                return;
+            }
+            current = current.getNext();
+            pos--;
+        }
+    }
+
+    /**
+     * Gets then Node that located on the position starting from the tail (end of the list)
+     * if position is more than list size - prints error message
+     * @param position number of the Node starting from the tail
+     * @return Node that located on the position from the tail (end of list) if position exists in list
+     */
+    public QueueNode getFromHead(int position) {
+
+        QueueNode current = tail;
+        QueueNode prev = tail;
+
+        int QueueSize = getQueueSize();
+
+        if (position > QueueSize) {
+            System.out.println("The position is more than list size. Queue size is " + QueueSize);
+            return null;
         }
 
         current = tail;
@@ -83,7 +156,8 @@ public class NodeQueueWrapper {
 
             if (pos == position){
                 prev.setNext(current.getNext());
-                return current.getValue();
+                System.out.println(current.getValue());
+                return current;
             }
 
             current = current.getNext();
@@ -94,17 +168,11 @@ public class NodeQueueWrapper {
             //System.out.println("prev = " + prev.getValue() + " current = " + current.getValue());
             pos --;
         }
-        return -1;
-        }
+        return current;
+    }
 
-    /**
-     * Adds Node to list on position from head(start of the list).
-     * If position is more than list size prints error message
-     * @param position number of the Node starting from the head
-     * @param node node should be inserted at position
-     */
-    public void addNode(int position, QueueNode node) {
-        /*Your code here*/
+    public int getQueueSize() {
+
         int QueueSize = 0;
         QueueNode current = tail;
 
@@ -112,34 +180,6 @@ public class NodeQueueWrapper {
             current = current.getNext();
             QueueSize ++;
         }
-        if (position > QueueSize) {
-            System.out.println("The position is more than list size. Queue size is " + QueueSize);
-            return;
-        }
-
-        int pos = QueueSize;
-        current = tail;
-
-        while (current != null){
-
-            if (pos == position){
-                node.setNext(current.getNext());
-                current.setNext(node);
-                break;
-            }
-            current = current.getNext();
-            pos --;
-        }
-    }
-
-    /**
-     * Gets then Node that located on the position starting from the tail (end of the list)
-     * if position is more than list size - prints error message
-     * @param position number of the Node starting from the tail
-     * @return Node that located on the position from the tail (end of list) if position exists in list
-     */
-    public QueueNode getFromHead(int position) {
-        /*Your code here and please remove "return null". I've put it for ability to compile code*/
-        return null;
+        return QueueSize;
     }
 }

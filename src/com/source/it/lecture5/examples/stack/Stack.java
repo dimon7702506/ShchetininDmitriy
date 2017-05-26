@@ -28,6 +28,7 @@ public class Stack {
     public void push(int element) {
         if (currentPosition == holder.length - 1) {
             System.err.println("Stack is full");
+
             return;
         }
         holder[++currentPosition] = element;
