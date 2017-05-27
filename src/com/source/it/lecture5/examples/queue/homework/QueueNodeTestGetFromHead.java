@@ -10,7 +10,7 @@ public class QueueNodeTestGetFromHead {
         queue.addNode(new QueueNode(5));
         queue.printQueue();
 
-        queue.getFromHead(2);
+        queue.getFromHead(1);
         queue.printQueue();
     }
 }

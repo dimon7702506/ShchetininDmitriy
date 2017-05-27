@@ -26,6 +26,13 @@ public class NodeQueueWrapper {
 
             return current;
         } else {
+            if (tail.getNext() == null) {
+                System.out.println(tail.getValue());
+                System.out.println("null");
+                tail = null;
+                System.exit(0);
+            }
+
             return prev;
         }
     }
@@ -66,7 +73,7 @@ public class NodeQueueWrapper {
         int QueueSize = getQueueSize();
 
         if (position > QueueSize) {
-            System.out.println("The position is more than list size. Queue size is " + QueueSize);
+            System.err.println("The position is more than list size. Queue size is " + QueueSize);
             return 0;
         }
 
@@ -80,7 +87,9 @@ public class NodeQueueWrapper {
 
             if (pos == position) {
                 prev.setNext(current.getNext());
-                //return current.getValue();
+                if (current == tail) {
+                    tail = tail.getNext();
+                }
                 break;
             }
 
@@ -109,7 +118,7 @@ public class NodeQueueWrapper {
         int QueueSize = getQueueSize();
 
         if (position > QueueSize) {
-            System.out.println("The position is more than list size. Queue size is " + QueueSize);
+            System.err.println("The position is more than list size. Queue size is " + QueueSize);
             return;
         }
 
@@ -142,7 +151,7 @@ public class NodeQueueWrapper {
         int QueueSize = getQueueSize();
 
         if (position > QueueSize) {
-            System.out.println("The position is more than list size. Queue size is " + QueueSize);
+            System.err.println("The position is more than list size. Queue size is " + QueueSize);
             return null;
         }
 
@@ -157,6 +166,9 @@ public class NodeQueueWrapper {
             if (pos == position){
                 prev.setNext(current.getNext());
                 System.out.println(current.getValue());
+                if (current == tail) {
+                    tail = tail.getNext();
+                }
                 return current;
             }
 

@@ -22,14 +22,31 @@ public class Stack {
             System.err.println("No elements in stack, returning Integer.MIN_VALUE");
             return Integer.MIN_VALUE;
         }
-        return holder[currentPosition--];
+/*
+        System.out.println(currentPosition);
+        System.out.println(holder.length);
+*/
+
+        int result = holder[currentPosition--];
+
+        int[] holderNew = new int[holder.length - 1];
+        System.arraycopy(holder, 0, holderNew, 0, holder.length - 1);
+        holder = holderNew;
+        //System.out.println(holder.length);
+
+        return result;
     }
 
     public void push(int element) {
         if (currentPosition == holder.length - 1) {
-            System.err.println("Stack is full");
+            //System.err.println("Stack is full");
+            //System.out.println("Stack size is " + holder.length);
+            int [] holderNew = new int[holder.length + 1];
+            System.arraycopy(holder,0,holderNew,0,holder.length);
+            //System.out.println(Arrays.toString(holderNew));
+            holder = holderNew;
 
-            return;
+            //return;
         }
         holder[++currentPosition] = element;
     }
