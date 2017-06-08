@@ -32,7 +32,6 @@ public class NodeQueueWrapper {
                 tail = null;
                 System.exit(0);
             }
-
             return prev;
         }
     }

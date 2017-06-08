@@ -6,7 +6,7 @@ public class QueueNodeTest {
         queue.addNode(new QueueNode(2));
         queue.addNode(new QueueNode(5));
         queue.printQueue();
-        //queue.printQueueRecurcive();
+        queue.printQueueRecurcive();
 
         System.out.println(queue.remove(2));
         queue.printQueue();
