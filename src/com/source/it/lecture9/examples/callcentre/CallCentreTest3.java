@@ -3,6 +3,7 @@ package com.source.it.lecture9.examples.callcentre;
 
 import com.source.it.lecture9.examples.callcentre.impl.Call;
 import com.source.it.lecture9.examples.callcentre.impl.CallCentre;
+import com.source.it.lecture9.examples.callcentre.impl.CallsDto;
 
 import java.util.*;
 
@@ -12,6 +13,7 @@ public class CallCentreTest3 {
 
     public static void main(String[] args) {
         List<Call> calls = new LinkedList<>();
+        List<CallsDto> callsDtoList = new LinkedList<>();
 
         for (int i = 0; i < TOTAL_CALLS; i++) {
             calls.add(CallCentre.produceCall());
@@ -36,6 +38,7 @@ public class CallCentreTest3 {
             } else {
                 callDurations.put(call.getOperator(), call.getDuration());
             }
+            //CallsDto(call.getOperator(),call.getDuration(),count)
         }
 
         /*for (String operator : callDurations.keySet()) {
