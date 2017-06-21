@@ -12,15 +12,18 @@ public class MatrixInverter {
         };
         /* Your code here */
 
-        for (int i = 0; i < array.length; i++) {
-            for (int j = i; j < array.length; j++) {
-                int temp = array[i][j];
-                array[i][j] = array [j][i];
-                array[j][i] = temp;
+        if (array.length == array[0].length) {
+            for (int i = 0; i < array.length; i++) {
+                for (int j = i; j < array.length; j++) {
+                    int temp = array[i][j];
+                    array[i][j] = array[j][i];
+                    array[j][i] = temp;
+                }
             }
+            PrintArray(array);
+        } else {
+            System.err.println("Matrix is not square");
         }
-
-        PrintArray(array);
       }
 
     public static void PrintArray(int [][] array) {
