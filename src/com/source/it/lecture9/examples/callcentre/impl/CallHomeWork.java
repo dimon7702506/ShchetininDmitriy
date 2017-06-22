@@ -31,7 +31,7 @@ public class CallHomeWork {
         for (String operator : operators) {
             String operatorNumber = operator.substring(OPERATOR.length());
             int durationIndex = Integer.parseInt(operatorNumber) - 1;
-            System.out.println("Operator " + operator + " talked for " + durations.get(durationIndex) + " "
+            System.out.println("Operator " + operator + " talked for " + durations.get(durationIndex) + "sec "
                     + counts.get(durationIndex) + " times");
         }
     }

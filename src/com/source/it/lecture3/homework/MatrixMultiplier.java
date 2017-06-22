@@ -16,17 +16,20 @@ public class MatrixMultiplier {
                 {7, 5, 1},
                 {3, 4, 6}
         };
+        if (first.length == second[0].length && first[0].length == second.length) {
+            int[][] result = new int[first.length][second[0].length];
 
-        int[][] result = new int[first.length][second[0].length];
-
-        for (int i = 0; i < first.length; i++) {
-            for (int j = 0; j < second[0].length; j++) {
-                for (int k = 0; k < second.length; k++){
-                    result[i][j] += first[i][k] * second[k][j];
+            for (int i = 0; i < first.length; i++) {
+                for (int j = 0; j < second[0].length; j++) {
+                    for (int k = 0; k < second.length; k++) {
+                        result[i][j] += first[i][k] * second[k][j];
+                    }
                 }
             }
+            PrintArray(result);
+        } else {
+            System.err.println("Error!!!");
         }
-     PrintArray(result);
     }
 
     public static void PrintArray(int [][] array) {
