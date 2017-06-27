@@ -9,7 +9,7 @@ import java.util.Arrays;
 public class ReadWithBufferExample {
     public static final String FILE_NAME =
             /*"/Users/kblyumkin/Projects/AprilLectures/resources/fadeToBlack.txt"*/
-        "/Users/kblyumkin/Projects/AprilLectures/resources/someBigFile.mp3";
+        "D:\\java\\projects\\resources\\someBigFile.mp3";
 
     public static final int BUFFER_SIZE  = 2048;
 

@@ -9,7 +9,7 @@ public class ReadByByteExampleFixed {
         InputStream fromFile = null;
         try {
             fromFile = new FileInputStream(
-                    new File("/Users/kblyumkin/Projects/AprilLectures/resources/fadeToBlack.txt"));
+                    new File("D:\\java\\projects\\resources\\fadeToBlack.txt"));
             readByByte(fromFile);
         } catch (IOException e) {
             System.out.println("Couldn't open file!!");

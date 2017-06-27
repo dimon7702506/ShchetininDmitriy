@@ -18,7 +18,6 @@ public class TreeSetExample {
         users.add(new User("John"));
         users.add(new User("Mike"));
         users.add(new User("John"));
-
         System.out.println(users);
 
     }
