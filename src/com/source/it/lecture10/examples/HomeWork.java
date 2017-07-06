@@ -6,10 +6,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 
 public class HomeWork {
 
@@ -33,22 +30,22 @@ public class HomeWork {
 
         Set<String> strings = new TreeSet<>();
         String tempString = "";
-
         while ((oneByte = is.read()) != -1) {
             tempString += (char) oneByte;
         }
 
         String[] split = tempString.split("\n");
         for (String current : split) {
-            if (!current.startsWith("#") /*&& (!current.isEmpty()) && ("".equals(current))*/) {
+            if (!current.startsWith("#") && current.length() > 1) {
                 strings.add(current);
-               // System.out.println("add ");
             }
             System.out.println(current);
         }
         System.out.println("====================================");
-        System.out.print(strings);
 
+        for (String str : strings) {
+            System.out.println(str);
+        }
     }
 
     private static void closeInputStream(InputStream is) {

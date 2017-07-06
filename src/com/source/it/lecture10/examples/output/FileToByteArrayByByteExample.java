@@ -3,7 +3,7 @@ package com.source.it.lecture10.examples.output;
 import java.io.*;
 
 public class FileToByteArrayByByteExample {
-    public static final String PATH = "/Users/kblyumkin/Projects/SourceItLectures/resources/";
+    public static final String PATH = "D:\\java\\projects\\resources\\";
     private static final String[] TEXTS = {"fadeToBlack.txt", "nothingElseMatters.txt", "unforgiven.txt"};
 
     public static void main(String[] args) {

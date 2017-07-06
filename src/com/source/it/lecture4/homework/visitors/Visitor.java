@@ -6,8 +6,8 @@ import java.util.Random;
 
 public class Visitor {
 
-    public final static int MAX_VISITORS_PER_DAY = 50;
-    public final static int MIN_VISITORS_PER_DAY = 10;
+    public final static int MAX_VISITORS_PER_DAY = 5;
+    public final static int MIN_VISITORS_PER_DAY = 3;
 
     private long comeTime;
     private long leaveTime;
