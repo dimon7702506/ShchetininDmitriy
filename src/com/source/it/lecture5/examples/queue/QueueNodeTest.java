@@ -8,7 +8,7 @@ public class QueueNodeTest {
         queue.printQueue();
         queue.printQueueRecurcive();
 
-        System.out.println(queue.remove(2));
+        queue.remove(2);
         queue.printQueue();
 
 /*        System.out.println(queue.getHead().getValue());

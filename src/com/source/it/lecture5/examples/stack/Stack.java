@@ -3,7 +3,7 @@ package com.source.it.lecture5.examples.stack;
 import java.util.Arrays;
 
 public class Stack {
-    private static final int DEFAULT_STACK_SIZE          = 10;// ToDo: HomeWork - implement auto resize of inner array
+    private static final int DEFAULT_STACK_SIZE          = 5;// ToDo: HomeWork - implement auto resize of inner array
     private static final int DEFAULT_CAPACITY_MULTIPLIER = 2; // ToDo: you should use this variable to increase/decrease
                                                               // ToDo: holder size in push() & pop() methods.
     private int[] holder;
@@ -22,18 +22,17 @@ public class Stack {
             System.err.println("No elements in stack, returning Integer.MIN_VALUE");
             return Integer.MIN_VALUE;
         }
-/*
-        System.out.println(currentPosition);
-        System.out.println(holder.length);
-*/
+        /*System.out.println(holder.length);
+        System.out.println("currentPosition = " + currentPosition + " / =" + holder.length / currentPosition);*/
 
         int result = holder[currentPosition--];
 
-        int[] holderNew = new int[holder.length - 1];
-        System.arraycopy(holder, 0, holderNew, 0, holder.length - 1);
-        holder = holderNew;
-        //System.out.println(holder.length);
-
+        if (holder.length / (currentPosition + 1) >= DEFAULT_CAPACITY_MULTIPLIER) {
+            int[] holderNew = new int[holder.length / DEFAULT_CAPACITY_MULTIPLIER];
+            System.arraycopy(holder, 0, holderNew, 0, currentPosition);
+            holder = holderNew;
+            //System.out.println(holder.length);
+        }
         return result;
     }
 
@@ -41,12 +40,10 @@ public class Stack {
         if (currentPosition == holder.length - 1) {
             //System.err.println("Stack is full");
             //System.out.println("Stack size is " + holder.length);
-            int [] holderNew = new int[holder.length + 1];
+            int [] holderNew = new int[holder.length * DEFAULT_CAPACITY_MULTIPLIER];
             System.arraycopy(holder,0,holderNew,0,holder.length);
-            //System.out.println(Arrays.toString(holderNew));
             holder = holderNew;
-
-            //return;
+            //System.out.println("resize " + Arrays.toString(holder) + " size of holder " + holder.length);
         }
         holder[++currentPosition] = element;
     }

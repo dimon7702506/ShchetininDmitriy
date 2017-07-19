@@ -44,7 +44,6 @@ public class ArrayMergeSorter {
                 result[index] = left[leftIndex++];
             }
         }
-
         return result;
     }
 }

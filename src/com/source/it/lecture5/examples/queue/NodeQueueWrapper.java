@@ -63,23 +63,22 @@ public class NodeQueueWrapper {
      *
      * @param position number of the Node starting from the head
      **/
-    public int remove(int position) {
+    public void remove(int position) {
         /*Your code here*/
 
         QueueNode current = tail;
         QueueNode prev = tail;
 
-        int QueueSize = getQueueSize();
+        int queueSize = getQueueSize();
 
-        if (position > QueueSize) {
-            System.err.println("The position is more than list size. Queue size is " + QueueSize);
-            return 0;
+        if (position > queueSize || position <= 0) {
+            throw new IllegalArgumentException();
         }
 
         current = tail;
         prev = tail;
 
-        int pos = QueueSize;
+        int pos = queueSize;
 
         while (current != null) {
             //System.out.println("pos " + pos);
@@ -94,13 +93,13 @@ public class NodeQueueWrapper {
 
             current = current.getNext();
 
-            if (pos != QueueSize) {
+            if (pos != queueSize) {
                 prev = prev.getNext();
             }
             //System.out.println("prev = " + prev.getValue() + " current = " + current.getValue());
             pos--;
         }
-        return 0;
+        return;
     }
 
     /**
@@ -114,14 +113,13 @@ public class NodeQueueWrapper {
         /*Your code here*/
         QueueNode current = tail;
 
-        int QueueSize = getQueueSize();
+        int queueSize = getQueueSize();
 
-        if (position > QueueSize) {
-            System.err.println("The position is more than list size. Queue size is " + QueueSize);
-            return;
+        if (position > queueSize || position <= 0) {
+            throw new IllegalArgumentException();
         }
 
-        int pos = QueueSize;
+        int pos = queueSize;
         current = tail;
 
         while (current != null) {
@@ -147,17 +145,16 @@ public class NodeQueueWrapper {
         QueueNode current = tail;
         QueueNode prev = tail;
 
-        int QueueSize = getQueueSize();
+        int queueSize = getQueueSize();
 
-        if (position > QueueSize) {
-            System.err.println("The position is more than list size. Queue size is " + QueueSize);
-            return null;
+        if (position > queueSize || position <= 0) {
+            throw new IllegalArgumentException();
         }
 
         current = tail;
         prev = tail;
 
-        int pos = QueueSize;
+        int pos = queueSize;
 
         while (current != null){
             //System.out.println("pos " + pos);
@@ -173,7 +170,7 @@ public class NodeQueueWrapper {
 
             current = current.getNext();
 
-            if (pos != QueueSize) {
+            if (pos != queueSize) {
                 prev = prev.getNext();
             }
             //System.out.println("prev = " + prev.getValue() + " current = " + current.getValue());
@@ -184,13 +181,13 @@ public class NodeQueueWrapper {
 
     public int getQueueSize() {
 
-        int QueueSize = 0;
+        int queueSize = 0;
         QueueNode current = tail;
 
         while (current != null) {
             current = current.getNext();
-            QueueSize ++;
+            queueSize ++;
         }
-        return QueueSize;
+        return queueSize;
     }
 }

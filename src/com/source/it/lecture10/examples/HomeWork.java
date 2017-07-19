@@ -39,6 +39,9 @@ public class HomeWork {
             if (!current.startsWith("#") && current.length() > 1) {
                 strings.add(current);
             }
+            if (current.indexOf("==") > 0) {
+                System.out.println("Incorrect string!!!");
+            }
             System.out.println(current);
         }
         System.out.println("====================================");

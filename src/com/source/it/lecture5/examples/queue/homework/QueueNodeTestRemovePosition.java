@@ -10,7 +10,7 @@ public class QueueNodeTestRemovePosition {
         queue.addNode(new QueueNode(5));
         queue.printQueue();
 
-        queue.remove(1);
+        queue.remove(2);
         queue.printQueue();
 
     }

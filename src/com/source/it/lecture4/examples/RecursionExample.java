@@ -6,7 +6,7 @@ public class RecursionExample {
             System.out.println("Hello word!");
         }*/
 
-        print(2);
+        print(10);
     }
 
     public static void print(int counter) {

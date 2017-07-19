@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.Random;
 
 public class MultiThreadingArrayMergeSorter {
+
     public static void main(String[] args) {
         int[] array = createArray();
 
@@ -22,6 +23,7 @@ public class MultiThreadingArrayMergeSorter {
     }
 
     public static int[] doMergeSort(int[] left, int[] right) {
+
         if (left.length > 1) {
             left = doMergeSort(Arrays.copyOfRange(left, 0, left.length / 2),
                     Arrays.copyOfRange(left, left.length / 2, left.length));
@@ -33,6 +35,7 @@ public class MultiThreadingArrayMergeSorter {
         int[] result = new int[left.length + right.length];
         int leftIndex = 0;
         int rightIndex = 0;
+
         for (int index = 0; index < result.length; index++) {
             if (leftIndex > left.length - 1) {
                 System.arraycopy(right, rightIndex, result, index, result.length - index);
@@ -48,7 +51,6 @@ public class MultiThreadingArrayMergeSorter {
                 result[index] = left[leftIndex++];
             }
         }
-
         return result;
     }
 
